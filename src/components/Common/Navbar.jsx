@@ -32,6 +32,14 @@ const Navbar = () => {
                   </li>
                   <li>
                      <NavLink
+                        to="/login"
+                        className={({ isActive }) => isActive ? "active hover:text-amber-400" : "default hover:text-amber-400"}
+                     >
+                        Login
+                     </NavLink>
+                  </li>
+                  <li>
+                     <NavLink
                         to="/"
                      >
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

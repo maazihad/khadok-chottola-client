@@ -3,6 +3,8 @@ import App from "../App";
 import Home from "../components/Pages/Home";
 import Blog from "../components/Pages/Blog";
 import ErrorPage from "../components/Pages/ErrorPage";
+import Login from "../components/Login/Login";
+import Register from "../components/Login/Register";
 
 const router = createBrowserRouter([
    {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
          {
             path: 'blog',
             element: <Blog />,
+         },
+         {
+            path: 'login',
+            element: <Login />
+         },
+         {
+            path: 'register',
+            element: <Register />
          }
       ]
    }
