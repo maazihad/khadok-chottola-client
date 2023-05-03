@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
 
    const { createUser } = useContext(AuthContext);
    const [acceptConditions, setConditions] = useState(false);
+   const [showPass, setShowPass] = useState(false);
 
    const handleRegister = (event) => {
       event.preventDefault();
@@ -60,11 +62,22 @@ const Register = () => {
 
 
 
-                     <div className="form-control">
+                     <div className="form-control relative">
                         <label className="label">
                            <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="Enter your Password" className="input input-bordered" required />
+                        <input type={showPass ? "text" : "password"} name='password' placeholder="Enter your Password" className="input input-bordered" required />
+
+                        {/* ==================Show password toggle==================  */}
+                        <button className='absolute right-5 top-12' onClick={() => setShowPass(!showPass)}>
+                           <small>
+                              {
+                                 showPass
+                                    ? <FaEyeSlash className='text-2xl text-red-700 ' />
+                                    : <FaEye className='text-2xl text-red-900' />
+                              }
+                           </small>
+                        </button>
                      </div>
 
 
