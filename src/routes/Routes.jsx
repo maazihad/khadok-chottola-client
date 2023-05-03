@@ -6,11 +6,12 @@ import ErrorPage from "../components/Pages/ErrorPage";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import Terms from "../components/Pages/Terms";
+import MainLayout from "../components/layout/MainLayout";
 
 const router = createBrowserRouter([
    {
       path: '/',
-      element: <App />,
+      element: <MainLayout />,
       errorElement: <ErrorPage />,
       children: [
          {
@@ -32,9 +33,22 @@ const router = createBrowserRouter([
          {
             path: 'terms',
             element: <Terms></Terms>,
-         }
+         },
+
       ]
-   }
+   },
+   // {
+   //    path: 'chefs',
+   //    element: <MainLayout></MainLayout>,
+   //    children: [
+   //       {
+   //          path: ':id',
+   //          element: <Chefs></Chefs>,
+   //          loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+   //       }
+   //    ]
+   // },
+
 ]);
 
 export default router;

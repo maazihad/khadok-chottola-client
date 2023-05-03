@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Chef from '../Components/ChefBanner';
+import Chefs from '../Components/Chefs';
 
 const Home = () => {
    return (
       <>
-         <div className="hero min-h-screen"
+         <section className="hero min-h-screen"
             style={{ backgroundImage: `url("https://media-cdn2.greatbritishchefs.com/media/x1ifrwul/img81389.whqc_1426x713q90.webp")` }}>
             <div className="hero-overlay bg-opacity-30"></div>
             <div className="hero-content text-center text-neutral-content">
@@ -20,7 +22,13 @@ const Home = () => {
 
                </div>
             </div>
-         </div>
+         </section>
+         <section>
+            <Chef />
+            <Chefs />
+         </section>
+
+
       </>
    );
 };
