@@ -7,8 +7,18 @@
 }
 
 @tailwind components;
+
 @tailwind utilities;
 
+@layer components {
+   .error {
+      @apply text-red-500 text-sm m-0;
+   }
+
+   .error::before {
+      content: "⚠ ";
+   }
+}
 
 .active {
    @apply font-medium tracking-wide text-amber-700 transition-colors duration-200;

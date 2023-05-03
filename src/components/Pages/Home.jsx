@@ -2,9 +2,19 @@ import React from 'react';
 
 const Home = () => {
    return (
-      <div className='min-h-[calc(100vh-80px)]'>
-         <h2>This is home page</h2>
-      </div>
+      <>
+         <div className="hero min-h-screen"
+            style={{ backgroundImage: `url("https://media-cdn2.greatbritishchefs.com/media/x1ifrwul/img81389.whqc_1426x713q90.webp")` }}>
+            <div className="hero-overlay bg-opacity-30"></div>
+            <div className="hero-content text-center text-neutral-content">
+               <div className="max-w-md">
+                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                  <button className="btn btn-primary">Get Started</button>
+               </div>
+            </div>
+         </div>
+      </>
    );
 };
 
