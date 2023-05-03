@@ -7,6 +7,8 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import Terms from "../components/Pages/Terms";
 import MainLayout from "../components/layout/MainLayout";
+import RecipesLayout from "../components/layout/RecipesLayout";
+import ChefRecipeDetails from "../components/Pages/ChefRecipeDetails";
 
 const router = createBrowserRouter([
    {
@@ -37,17 +39,17 @@ const router = createBrowserRouter([
 
       ]
    },
-   // {
-   //    path: 'chefs',
-   //    element: <MainLayout></MainLayout>,
-   //    children: [
-   //       {
-   //          path: ':id',
-   //          element: <Chefs></Chefs>,
-   //          loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
-   //       }
-   //    ]
-   // },
+   {
+      path: 'chefs',
+      element: <RecipesLayout />,
+      children: [
+         {
+            path: ':id',
+            element: <ChefRecipeDetails />,
+            loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+         }
+      ]
+   },
 
 ]);
 
