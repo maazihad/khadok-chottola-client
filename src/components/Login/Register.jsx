@@ -73,8 +73,8 @@ const Register = () => {
                            <small>
                               {
                                  showPass
-                                    ? <FaEyeSlash className='text-2xl text-red-700 ' />
-                                    : <FaEye className='text-2xl text-red-900' />
+                                    ? <FaEye className='text-2xl text-red-900' />
+                                    : <FaEyeSlash className='text-2xl text-red-700 ' />
                               }
                            </small>
                         </button>
