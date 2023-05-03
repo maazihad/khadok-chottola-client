@@ -1,46 +1,95 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+
+   const { createUser } = useContext(AuthContext);
+   const [acceptConditions, setConditions] = useState(false);
+
+   const handleRegister = (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      form.reset("");
+      console.log(name, email, password);
+
+      createUser(email, password)
+         .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+         })
+         .catch(err => {
+            console.log(err.message);
+         });
+   };
+
+   const handleConditions = (event) => {
+      setConditions(event.target.checked);
+   };
+
    return (
       <section className='min-h-[calc(100vh-200px)]'>
          <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
-               <div className="text-center lg:text-left">
-                  <h1 className="text-5xl font-bold mb-5">Please Register Now!!!</h1>
-               </div>
-               <form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 w-96">
+               <form onSubmit={handleRegister} className="card flex-shrink-0  max-w-sm shadow-2xl bg-base-100 w-96">
                   <div className="card-body">
+                     <div className="text-center lg:text-left m-5">
+                        <h1 className="text-3xl font-bold text-center">Register Now!!!</h1>
+                     </div>
+
+                     <div className="form-control">
+                        <label className="label">
+                           <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
+                     </div>
+
+
+
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" className="input input-bordered" />
+                        <input type="email" name="email" placeholder="Enter your valid email" className="input input-bordered" required />
                      </div>
+
+
+
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text">Password</span>
                         </label>
-                        <input type="text" placeholder="password" className="input input-bordered" />
+                        <input type="password" name='password' placeholder="Enter your Password" className="input input-bordered" required />
+                     </div>
+
+
+
+                     <div className="form-control">
                         <label className="label">
-                           <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                           <span className="label-text">Photo URL</span>
                         </label>
+                        <input type="url" name='url' placeholder="Photo URL" className="input input-bordered" />
                      </div>
 
 
                      <div className="form-control">
                         <label className="flex cursor-pointer items-center">
-                           <input type="checkbox" className="checkbox checkbox-xs" />
+                           <input onClick={handleConditions} type="checkbox" className="checkbox checkbox-xs" />
                            <span className="label-text ml-3">Accept <Link to="/terms" className='text-red-700 underline'>Terms & Conditions</Link></span>
                         </label>
                      </div>
 
                      <div className="form-control mt-2">
-                        <button className="btn btn-active">Register</button>
+                        <button className="btn btn-active" disabled={!acceptConditions}>Register</button>
                      </div>
 
 
-                     <p className='text-center'><small>Already have an account ? <Link to="/register" className="text-red-600 font-medium">Please Login.</Link></small></p>
+                     <p className='text-center'><small>Already have an account ? <Link to="/login" className="text-red-600 font-medium">Please Login.</Link></small></p>
                   </div>
                </form>
 
