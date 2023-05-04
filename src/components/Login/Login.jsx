@@ -6,16 +6,16 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
 
-   const { signIn, resetEmail, googlePopUp, githubPopUp } = useContext(AuthContext);
+   const { user, signIn, resetEmail, googlePopUp, githubPopUp } = useContext(AuthContext);
    const [showPass, setShowPass] = useState(false);
 
    const navigate = useNavigate();
    const location = useLocation();
 
-   const [email, setEmail] = useState("");
+   const [emails, setEmails] = useState("");
    const [emailErr, setEmailErr] = useState("");
 
-   const [password, setPassword] = useState("");
+   const [passwords, setPasswords] = useState("");
    const [passwordErr, setPasswordErr] = useState("");
 
    const [success, setSuccess] = useState('');
@@ -26,10 +26,9 @@ const Login = () => {
 
    /// ======================handle email=====================//
 
-
    const handleEmail = (event) => {
       const email = event.target.value;
-      setEmail(email);
+      setEmails(email);
       if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
          setEmailErr("Please provide a valid email");
       } else {
@@ -41,7 +40,7 @@ const Login = () => {
 
    const handlePassword = (event) => {
       const passwordInput = event.target.value;
-      setPassword(passwordInput);
+      setPasswords(passwordInput);
       if (passwordInput.length < 6) {
          setPasswordErr("Password must be at least 6 characters long");
       } else if (!/(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$)/.test(passwordInput)) {
@@ -117,7 +116,6 @@ const Login = () => {
    };
 
 
-
    // =========================Handle Github Login ========================//
    const handleGithubLogIn = () => {
       githubPopUp()
@@ -131,7 +129,6 @@ const Login = () => {
             toast(err.message);
          });
    };
-
 
 
    return (
@@ -149,7 +146,7 @@ const Login = () => {
                         <label className="label">
                            <span className="label-text">Email</span>
                         </label>
-                        <input value={email} onChange={handleEmail} type="email" name="email" placeholder="Enter your valid email" className={`input input-bordered ${email
+                        <input value={emails} onChange={handleEmail} type="email" name="email" placeholder="Enter your valid email" className={`input input-bordered ${emails
                            ? emailErr
                               ? "border-red-500"
                               : "border-green-500"
@@ -163,8 +160,8 @@ const Login = () => {
                         <label className="label">
                            <span className="label-text">Password</span>
                         </label>
-                        <input value={password} onChange={handlePassword} type={showPass ? "text" : "password"} name='password' placeholder="Enter your Password" className={`
-                           input input-bordered ${password
+                        <input value={passwords} onChange={handlePassword} type={showPass ? "text" : "password"} name='password' placeholder="Enter your Password" className={`
+                           input input-bordered ${passwords
                               ? passwordErr
                                  ? "border-red-500"
                                  : "border-green-500"
@@ -219,8 +216,6 @@ const Login = () => {
                      </p> */}
                   </div>
                </form>
-
-
             </div>
          </div>
       </section>

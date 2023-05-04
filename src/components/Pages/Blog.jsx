@@ -5,7 +5,6 @@ import { ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 
 const Blog = () => {
 
-
    // ======================Loading...........................
    const navigation = useNavigation();
    if (navigation.state === 'loading') {
@@ -14,6 +13,7 @@ const Blog = () => {
 
    return (
       <section className="max-w-7xl mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8 md:px-24 my-container pb-20 min-h-[calc(100vh-80px)]">
+
          <h2 className='mb-10 text-center text-2xl text-gray-800 font-black md:text-3xl lg:text-4xl mt-10'>Answer Questions</h2>
          <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box mb-5">
             <div className="collapse-title text-xl font-medium">
@@ -24,7 +24,6 @@ const Blog = () => {
                   In React, an input form element that is directly manipulated by the user is known as an uncontrolled component. On the Other hand, a controlled component is a form element that is entirely controlled by Reacts state.
 
                   <b>In controlled components, default values can be set easily by initializing the state with the desired values. In uncontrolled components, default values can be set using the defaultValue attribute.</b>
-
                </p>
             </div>
          </div>
@@ -83,3 +82,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
+

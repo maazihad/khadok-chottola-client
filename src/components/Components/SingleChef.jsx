@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,6 @@ import { Link } from 'react-router-dom';
 const SingleChef = ({ singleChef }) => {
 
    const { _id, chef_name, chef_thumb, years_of_experience, number_of_recipes, likes } = singleChef;
-
 
    return (
       <div className="">

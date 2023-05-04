@@ -8,7 +8,7 @@ const Footer = () => {
          <div className='grid text-center lg:grid-cols-2 py-4 px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
             <div className='columns-1'>
                <img className='lg:w-72 w-48 mx-auto mb-5 mt-10' src={userLogo} alt="" />
-               <button className='border-2 hover:none border-amber-700 py-3 px-10 mb-3'>NEWSLETTER</button>
+               <button className='border-2 hover:none border-amber-700 py-3 px-10 mb-3'>Send Letter favorite</button>
             </div>
             <div className=' grid lg:grid-cols-3 columns-3 text-amber-800 '>
                <ul>

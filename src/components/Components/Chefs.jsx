@@ -3,7 +3,6 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import Chef from './ChefBanner';
 import SingleChef from './SingleChef';
 
-
 const Chefs = () => {
 
    const [chefs, setChefs] = useState([]);
@@ -16,7 +15,6 @@ const Chefs = () => {
    }, []);
 
    return (
-
       <div className="px-4  max-w-7xl mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8 md:px-24 ">
 
          <h2 className=" mb-4 shadow-md rounded-full lg:py-6 py-4 lg:text-6xl text-4xl font-bold text-center text-amber-700 bg-purple-100 "> <span className="lg:bg-green-700 lg:shadow-lg lg:shadow-purple-500 lg:rounded-2xl py-2 lg:text-white px-3">Bengali</span> Famous Chefs!!!</h2>
@@ -28,7 +26,6 @@ const Chefs = () => {
                ></SingleChef>)
             }
          </div>
-
       </div>
    );
 };

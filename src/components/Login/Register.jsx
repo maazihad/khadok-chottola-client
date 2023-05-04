@@ -49,9 +49,6 @@ const Register = () => {
       }
    };
 
-
-
-
    //==============================Handle Register ===================//
    const handleRegister = (event) => {
       event.preventDefault();
@@ -110,8 +107,6 @@ const Register = () => {
                         <input type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
                      </div>
 
-
-
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text">Email</span>
@@ -124,8 +119,6 @@ const Register = () => {
                            }`} required />
                         {emailErr && <span className="error">{emailErr}</span>}
                      </div>
-
-
 
                      <div className="form-control relative">
                         <label className="label">
@@ -153,15 +146,12 @@ const Register = () => {
                         {passwordErr && <span className="error">{passwordErr}</span>}
                      </div>
 
-
-
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text">Photo URL</span>
                         </label>
                         <input type="url" name='url' placeholder="Photo URL" className="input input-bordered" />
                      </div>
-
 
                      <div className="form-control">
                         <label className="flex cursor-pointer items-center">
@@ -174,19 +164,9 @@ const Register = () => {
                         <button className="btn btn-active" disabled={!acceptConditions}>Register</button>
                      </div>
 
-
                      <p className='text-center'><small>Already have an account ? <Link to="/login" className="text-red-600 font-medium">Please Login.</Link></small></p>
-
-                     {/* <p className="text-green-700">
-                        {success}
-                     </p>
-                     <p className="text-red-700">
-                        {error}
-                     </p> */}
                   </div>
                </form>
-
-
             </div>
          </div>
       </section>

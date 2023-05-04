@@ -2,7 +2,7 @@ import { ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigation } from 'react-router-dom';
-import CardsRecipe from './CardsRecipe';
+import CardsRecipes from './CardsRecipes';
 import LoadingSpinner from '../Components/LoadingSpinner';
 import LazyLoad from 'react-lazy-load';
 
@@ -45,9 +45,8 @@ const ChefRecipeDetails = () => {
                </div>
             </div>
          </div>
-
          <div>
-            <CardsRecipe />
+            <CardsRecipes />
          </div>
       </section>
    );

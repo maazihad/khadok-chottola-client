@@ -6,7 +6,7 @@ import LoadingSpinner from '../components/Components/LoadingSpinner';
 const ProtectRoute = ({ children }) => {
    const { user, loading } = useContext(AuthContext);
    const location = useLocation();
-   console.log(location);
+   // console.log(location);
 
    if (loading) {
       return <LoadingSpinner />;

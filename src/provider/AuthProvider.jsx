@@ -61,8 +61,6 @@ const AuthProvider = ({ children }) => {
       googlePopUp,
       githubPopUp,
       logOut,
-
-
    };
    return (
       <AuthContext.Provider value={AuthInfo}>

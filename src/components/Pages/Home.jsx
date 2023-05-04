@@ -8,7 +8,6 @@ import ImageCarousel from '../Components/ImageCarousel';
 
 const Home = () => {
 
-
    // =============Loading....................
    const navigation = useNavigation();
    if (navigation.state === 'loading') {
@@ -37,19 +36,23 @@ const Home = () => {
                </div>
             </div>
          </section>
+
          <section>
             <Chef />
+         </section>
+
+         <section>
             <Chefs />
          </section>
+
          <section className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
             <h2 className="bg-white mb-4 uniqueH shadow-md  py-5 text-6xl font-bold text-center text-amber-700">Bengali family&apos;s favorite dishes.</h2>
             <Dishes />
          </section>
+
          <section className='my-20'>
             <ImageCarousel />
          </section>
-
-
       </>
    );
 };
