@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import Chef from '../Components/ChefBanner';
 import Chefs from '../Components/Chefs';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const Home = () => {
+
+
+   // =============Loading....................
+   const navigation = useNavigation();
+   if (navigation.state === 'loading') {
+      return <LoadingSpinner />;
+   }
+
    return (
       <>
          <section className="hero min-h-screen"

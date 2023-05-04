@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { Rating } from '@smastrom/react-rating';
 import { toast } from 'react-hot-toast';
+import LazyLoad from 'react-lazy-load';
 const CardsRecipe = () => {
 
    const [isFavorite, setIsFavorite] = useState(false);
@@ -28,7 +29,11 @@ const CardsRecipe = () => {
                      key={index}
                   >
                      <div className="card rounded-none card-compact w-full min-h-[500px] bg-base-100 shadow-xl">
-                        <figure><img className='w-96 h-64' src={singleRecipe?.recipe_img} /></figure>
+                        <figure>
+                           <LazyLoad threshold={.88} offset={300}>
+                              <img className='w-96 h-64' src={singleRecipe?.recipe_img} />
+                           </LazyLoad>
+                        </figure>
                         <div className="card-body">
                            <h2 className="card-title text-amber-800">{singleRecipe?.recipe_name}</h2>
                            <p className='text-md'>cooking method : {singleRecipe.cooking_method.slice(0, 300)} ...

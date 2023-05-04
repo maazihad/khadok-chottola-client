@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             element: <ProtectRoute>
                <ChefRecipeDetails></ChefRecipeDetails>
             </ProtectRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+            loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-maazihad-maazihad.vercel.app/chefs/${params.id}`)
          }
       ]
    },

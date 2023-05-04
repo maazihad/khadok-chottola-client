@@ -1,18 +1,29 @@
 import { ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigation } from 'react-router-dom';
 import CardsRecipe from './CardsRecipe';
+import LoadingSpinner from '../Components/LoadingSpinner';
+import LazyLoad from 'react-lazy-load';
 
 const ChefRecipeDetails = () => {
 
    const cuisines = useLoaderData();
    const { chef_name, chef_picture, years_of_experience, number_of_recipes, likes, details } = cuisines;
-   console.log(cuisines);
+
+   // =============Loading....................
+   const navigation = useNavigation();
+   if (navigation.state === 'loading') {
+      return <LoadingSpinner />;
+   }
    return (
       <section className="px-4  max-w-7xl mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8 md:px-24 mt-5">
          <div className="card w-full bg-base-100 shadow-xl">
-            <figure><img src={chef_picture} alt="Shoes" /></figure>
+            <figure>
+               <LazyLoad threshold={0.40} offset={500}>
+                  <img src={chef_picture} alt="Shoes" />
+               </LazyLoad>
+            </figure>
             <div className="card-body pt-3">
                <h2 className="card-title block text-center">{chef_name}</h2>
                <p className='text-gray-700 text-lg text-justify'>{details}</p>
