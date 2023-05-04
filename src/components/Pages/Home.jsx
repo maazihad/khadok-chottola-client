@@ -3,6 +3,7 @@ import { Link, useNavigation } from 'react-router-dom';
 import Chef from '../Components/ChefBanner';
 import Chefs from '../Components/Chefs';
 import LoadingSpinner from '../Components/LoadingSpinner';
+import Dishes from '../Components/Dishes';
 
 const Home = () => {
 
@@ -20,10 +21,13 @@ const Home = () => {
             <div className="hero-overlay bg-opacity-30"></div>
             <div className="hero-content text-center text-neutral-content">
                <div className="w-5/6">
-                  <h1 className="mb-5 text-7xl font-extrabold">
+                  <h1 className="mb-5 text-7xl font-extrabold uniqueH">
                      Indulge in the rich taste of tradition at <br />
                   </h1>
-                  <h1 className="mb-5 text-7xl font-extrabold">Khadok Chottola</h1>
+                  <h1 className="mb-5 text-7xl font-extrabold lg:uniqueH md:uniqueH ">
+                     <span className='lg:bg-purple-700 uniqueH lg:p-2 lg:px-5'>Khadok </span>
+                     <span className='lg:bg-amber-700 uniqueH lg:p-2 lg:px-5'>Chottola</span>
+                  </h1>
                   <p className="mb-5 text-lg">
                      Welcome to <Link to="/">Khadok Chottola</Link>, your go-to destination for authentic Bangladeshi cuisine. Our dishes are made with fresh and locally sourced ingredients, cooked to perfection with aromatic spices and traditional recipes.
 
@@ -36,10 +40,14 @@ const Home = () => {
             <Chef />
             <Chefs />
          </section>
+         <section className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+            <h2 className="bg-white mb-4 uniqueH shadow-md  py-5 text-6xl font-bold text-center text-amber-700">Bengali family&apos;s favorite dishes.</h2>
+            <Dishes />
+         </section>
 
 
       </>
    );
 };
 
-export default Home;
+export default Home;;

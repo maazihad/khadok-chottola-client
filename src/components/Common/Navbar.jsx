@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logoText from "../../assets/logo/logo-text.png";
 import userLogo from "../../assets/logo/user-logo.jpg";
 import { AuthContext } from '../../provider/AuthProvider';
-import { FaUserCircle } from 'react-icons/fa';
 
 
 
 const Navbar = () => {
    const { user, logOut } = useContext(AuthContext);
+   const [userToggle, setUserToggle] = useState(false);
 
 
    const handleLogOut = () => {
@@ -47,7 +47,11 @@ const Navbar = () => {
                      </NavLink>
                   </li>
 
-                  <li className='flex items-center'>
+                  <li className={userToggle ? "default" : "hidden"}>
+                     <span className='text-amber-900'>{user?.email} </span>
+                  </li>
+
+                  <li className=' flex items-center' onMouseOver={() => setUserToggle(!userToggle)}>
                      {user
                         ? <NavLink className='' onClick={handleLogOut} >Logout</NavLink>
                         : <NavLink
@@ -57,12 +61,17 @@ const Navbar = () => {
                            Login
                         </NavLink>
                      }
-                     {user &&
+                     {
+                        user &&
                         <label tabIndex={0} className="btn btn-ghost btn-circle ml-5 avatar">
                            <div className="w-10 rounded-full">
-                              <img src={userLogo} />
+
+                              <img
+                                 src={userLogo}
+                              />
                            </div>
-                        </label>}
+                        </label>
+                     }
                   </li>
                </ul>
             </nav>
