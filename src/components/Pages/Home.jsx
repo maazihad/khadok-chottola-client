@@ -4,6 +4,7 @@ import Chef from '../Components/ChefBanner';
 import Chefs from '../Components/Chefs';
 import LoadingSpinner from '../Components/LoadingSpinner';
 import Dishes from '../Components/Dishes';
+import ImageCarousel from '../Components/ImageCarousel';
 
 const Home = () => {
 
@@ -43,6 +44,9 @@ const Home = () => {
          <section className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
             <h2 className="bg-white mb-4 uniqueH shadow-md  py-5 text-6xl font-bold text-center text-amber-700">Bengali family&apos;s favorite dishes.</h2>
             <Dishes />
+         </section>
+         <section className='my-20'>
+            <ImageCarousel />
          </section>
 
 

@@ -109,6 +109,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             toast("Successfully login with Google.");
+            navigate(from, { replace: true });
          })
          .catch(err => {
             toast(err.message);
@@ -124,6 +125,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             toast("Successfully login with Github.");
+            navigate(from, { replace: true });
          })
          .catch(err => {
             toast(err.message);

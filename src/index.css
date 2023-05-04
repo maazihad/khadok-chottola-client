@@ -12,13 +12,14 @@
    font-family: 'Lobster', cursive;
 }
 
-
 @tailwind utilities;
 
 @layer components {
    .error {
       @apply text-red-500 text-sm m-0;
    }
+
+
 
    .error::before {
       content: "⚠ ";

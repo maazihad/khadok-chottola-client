@@ -5,7 +5,7 @@ const Dishes = () => {
    const [dishes, setDishes] = useState([]);
 
    useEffect(() => {
-      fetch('http://localhost:5000/dishes')
+      fetch('https://b7a10-chef-recipe-hunter-server-side-maazihad-maazihad.vercel.app/dishes')
          .then(res => res.json())
          .then(data => setDishes(data))
          .catch(error => console.error(error));
