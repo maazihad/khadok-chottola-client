@@ -13,14 +13,17 @@ const AuthProvider = ({ children }) => {
    const [loading, setLoading] = useState(true);
 
    const createUser = (email, password) => {
+      setLoading(true);
       return createUserWithEmailAndPassword(auth, email, password);
    };
 
    const signIn = (email, password) => {
+      setLoading(true);
       return signInWithEmailAndPassword(auth, email, password);
    };
 
    const resetEmail = (email) => {
+      setLoading(true);
       return sendPasswordResetEmail(auth, email);
    };
    const logOut = () => {
@@ -29,16 +32,19 @@ const AuthProvider = ({ children }) => {
    };
 
    const googlePopUp = () => {
+      setLoading(true);
       return signInWithPopup(auth, googleProvider);
    };
 
    const githubPopUp = () => {
+      setLoading(true);
       return signInWithPopup(auth, githubProvider);
    };
 
    useEffect(() => {
       const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
          setUser(currentUser);
+         setLoading(false);
       });
       return () => {
          return unSubscriber;
