@@ -1,6 +1,7 @@
 import React from 'react';
-import { useNavigation } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../Components/LoadingSpinner';
+import { ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 
 const Blog = () => {
 
@@ -64,6 +65,16 @@ const Blog = () => {
                   I will create custom hook because of React JS hooks offer reusability as when a custom hook created. I can be reused easily, which is make my code clean and reduces the time to wite the code.
                </p>
             </div>
+         </div>
+         <div className="text-center">
+            <Link
+               to='/'
+            >
+               <button className='btn border-0 text-amber-100 bg-amber-900 py-2 px-4 rounded-3xl hover:bg-amber-700 duration-300 font-medium'>
+                  <ArrowUturnLeftIcon className="h-5 w-5 text-gray-100 mr-2" />
+                  Back to homepage
+               </button>
+            </Link>
          </div>
       </section>
    );

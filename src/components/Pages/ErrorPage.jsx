@@ -20,7 +20,7 @@ const ErrorPage = () => {
           <Link
             to='/'
           >
-            <button className='btn text-amber-100 bg-amber-900 py-2 px-4 rounded-3xl hover:bg-amber-700 duration-300 font-medium'>
+            <button className='btn border-0 text-amber-100 bg-amber-900 py-2 px-4 rounded-3xl hover:bg-amber-700 duration-300 font-medium'>
               <ArrowUturnLeftIcon className="h-5 w-5 text-gray-100 mr-2" />
               Back to homepage
             </button>
