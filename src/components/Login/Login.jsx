@@ -1,6 +1,6 @@
 import { FaGoogle, FaGithub, FaEyeSlash, FaEye } from "react-icons/fa";
 import React, { useContext, useRef, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-hot-toast";
 
@@ -8,6 +8,9 @@ const Login = () => {
 
    const { signIn, resetEmail, googlePopUp, githubPopUp } = useContext(AuthContext);
    const [showPass, setShowPass] = useState(false);
+
+   const navigate = useNavigate();
+   const location = useLocation();
 
    const [email, setEmail] = useState("");
    const [emailErr, setEmailErr] = useState("");
@@ -19,8 +22,10 @@ const Login = () => {
    const [error, setError] = useState('');
    const emailRef = useRef();
 
+   const from = location.state?.from?.pathname || '/';
 
    /// ======================handle email=====================//
+
 
    const handleEmail = (event) => {
       const email = event.target.value;
@@ -66,13 +71,14 @@ const Login = () => {
       }
       console.log(name, email, password);
 
-      form.reset("");
 
+      form.reset("");
       signIn(email, password)
          .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
             toast("Successfully Login.");
+            navigate(from, { replace: true });
          })
          .catch(err => {
             toast(err.message);
@@ -81,7 +87,7 @@ const Login = () => {
    };
 
    // =======================handle reset email================//
-   const handleResetPassword = event => {
+   const handleResetPassword = () => {
       const email = emailRef.current.value;
       if (!email) {
          toast("Please Provide your email address to reset.");
@@ -113,7 +119,7 @@ const Login = () => {
 
    // =========================Handle Github Login ========================//
    const handleGithubLogIn = () => {
-      googlePopUp()
+      githubPopUp()
          .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
@@ -187,7 +193,6 @@ const Login = () => {
                            </p>
                         </label>
                      </div>
-
 
 
                      <div className="form-control mt-2">

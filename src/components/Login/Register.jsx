@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 
 const Register = () => {
    const { createUser } = useContext(AuthContext);
+
+   const navigate = useNavigate();
+   const location = useLocation();
 
    const [acceptConditions, setConditions] = useState(false);
    const [showPass, setShowPass] = useState(false);
@@ -19,7 +22,7 @@ const Register = () => {
    const [success, setSuccess] = useState('');
    const [error, setError] = useState('');
 
-
+   const from = location.state?.from?.pathname || '/';
 
    /// ======================handle email=====================//
 
@@ -76,6 +79,7 @@ const Register = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             toast("Successfully Registered.");
+            navigate(from, { replace: true });
          })
          .catch(err => {
             console.log(err.message);

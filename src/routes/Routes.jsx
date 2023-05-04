@@ -9,6 +9,7 @@ import Terms from "../components/Pages/Terms";
 import MainLayout from "../components/layout/MainLayout";
 import RecipesLayout from "../components/layout/RecipesLayout";
 import ChefRecipeDetails from "../components/Pages/ChefRecipeDetails";
+import ProtectRoute from "./ProtectRoute";
 
 const router = createBrowserRouter([
    {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
       children: [
          {
             path: ':id',
-            element: <ChefRecipeDetails />,
+            element: <ProtectRoute><ChefRecipeDetails></ChefRecipeDetails></ProtectRoute>,
             loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
          }
       ]
