@@ -37,12 +37,25 @@ const SingleRecipe = ({ singleRecipe }) => {
             </div>
 
             <div className="flex items-center m-0 p-0 ">
-               <div className='flex text-lg align-items-center grow'>
-                  <span className='ms-2'>
+               <div className=" flex grow items-center">
+                  <div className="rating rating-sm rating-half">
+                     <input type="radio" name={Math.round(rating)} className="rating-hidden" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-1" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-2" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-1" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-2" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-1" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-2" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-1" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-2" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-1" />
+                     <input type="radio" name={Math.round(rating)} className="bg-green-500 mask mask-star-2 mask-half-2" />
+                  </div>
+                  <span className='ms-2 font-bold'>
                      {rating}
                   </span>
-                  <Rating className='text-gray-700 flex' style={{ maxWidth: 100 }} value={Math.round(rating)} readOnly />
                </div>
+
                <div className='flex justify-end m-5'>
                   <button onClick={handleClick} disabled={isFavorite} >
                      {isFavorite
@@ -52,7 +65,9 @@ const SingleRecipe = ({ singleRecipe }) => {
                </div>
             </div>
          </div>
+
       </div>
+
    );
 };
 
